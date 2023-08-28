@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({type, label, className, value, name, onChange}) => {
+const Input = ({type, label, className, value, name, onChange, placeholder}) => {
   return (
     <div className="flex flex-col gap-1">
         <label htmlFor={label} className="text-[#1A1619] font-medium text-sm">
@@ -19,7 +19,7 @@ const Input = ({type, label, className, value, name, onChange}) => {
                     </button>
                 </div> 
             ) : (
-                <input type={type} onChange={onChange} name={name} value ={value} className={`${className}  border-[1px] rounded border-[#CCC] py-[0.9rem] px-3`}/>
+                <input type={type} onChange={onChange} name={name} value ={value} placeholder={placeholder} className={`${className} border-[1px] rounded border-[#CCC] py-[0.9rem] px-3`}/>
             )
         }
     </div>

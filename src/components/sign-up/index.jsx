@@ -6,7 +6,10 @@ import attachment from "../../asset/Icon button.png";
 
 const SignUp = () => {
   const [show, setShow] = useState(1);
-  const [name, setName] = useState(" ");
+  const [formDetails, setFormDetails] = useState({
+ name:''
+  });
+
   const [email, setEmail] = useState(" ");
 
   // const handleClick = (e) => {
@@ -14,15 +17,15 @@ const SignUp = () => {
   //     setShow(2)
   //     console.log('click')
   // }
-  const handleNameChange = (e) => {
+  const handleChange = (e) => {
     console.log(e.target.value);
-    //    setBusName(e.target.value);
+       setFormDetails({...e.target.value});
     //    console.log(busName)
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name);
+    // console.log(name);
   };
 
   return (
@@ -44,18 +47,19 @@ const SignUp = () => {
               className="flex flex-col gap-5"
               onClick={handleSubmit}
             >
-              <p className="text-[#039BF0] font-medium text-sm mt-5">
-                Business Information
-              </p>
+              
 
               {show === 1 && (
                 <>
+                <p className="text-[#039BF0] font-medium text-sm mt-5">
+                Business Information
+              </p>
                   <Input
                     type="text"
                     label={"Business name"}
-                    value={name}
-                    name={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={formDetails.name}
+                    // name={}
+                    onChange={handleChange}
                   />
 
                   <Input
@@ -67,7 +71,7 @@ const SignUp = () => {
                   <Input
                     label={"Business Phone Number"}
                     type="phoneNumber"
-                    onChange={handleNameChange}
+                    // onChange={handleNameChange}
                   />
                   <div className="flex flex-col gap-1">
                     <label
@@ -85,7 +89,7 @@ const SignUp = () => {
                   <Input
                     label={"Account No"}
                     type="number"
-                    onChange={handleNameChange}
+                    // onChange={handleNameChange}
                   />
                   <div className="flex flex-col gap-1">
                     <label
@@ -144,7 +148,7 @@ const SignUp = () => {
                         htmlFor=""
                         className="text-[#1A1619] font-medium text-sm"
                       >
-                        Business Category
+                        State
                       </label>
                       <select
                         name=""
